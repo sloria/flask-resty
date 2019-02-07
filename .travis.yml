@@ -12,17 +12,12 @@ env:
 
 matrix:
   include:
-    - python: "2.7"
-      env: TOXENV=py-base
-    - python: "3.6"
-      env: TOXENV=py-base
-    - dist: xenial
-      python: "3.7"
-      env: TOXENV=py-full DATABASE_URL=postgres://localhost/travis_ci_test
-    - python: "pypy"
-      env: TOXENV=py-full
-    - python: "pypy3"
-      env: TOXENV=py-full
+    - { python: "2.7",   env: "TOXENV=py27" }
+    - { python: "2.7",   env: "TOXENV=py-base" }
+    - { python: "3.6",   env: "TOXENV=py-base" }
+    - { python: "3.7",   env: "TOXENV=py-full DATABASE_URL=postgres://localhost/travis_ci_test", dist: "xenial" }
+    - { python: "pypy",  env: "TOXENV=py-full" }
+    - { python: "pypy3", env: "TOXENV=py-full" }
 
 cache:
   directories:
